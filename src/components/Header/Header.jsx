@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router";
+import {  NavLink } from "react-router";
 import "./Header.css"
 const Header = () => {
   return (
@@ -8,7 +8,8 @@ const Header = () => {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/computer">Computer</NavLink>
         <NavLink to="/mobile">Mobile</NavLink>
-        <NavLink to="/home">Home</NavLink>
+        <NavLink to="/user">User</NavLink>
+        <NavLink to="/user2">User2</NavLink>
       </nav>
     </div>
   );
