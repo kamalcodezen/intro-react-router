@@ -8,8 +8,11 @@ import Root from "./components/Root/Root.jsx";
 import Home from "./components/Home/Home.jsx";
 import Computer from "./components/Computer/Computer.jsx";
 import Mobile from "./components/Mobile/Mobile.jsx";
-import User from "./components/User/User.jsx";
-import User2 from "./components/User2/User2.jsx";
+import Users from "./components/Users/Users.jsx";
+import Users2 from "./components/Users2/Users2.jsx";
+import UserDetails from "./components/UserDetails/UserDetails.jsx";
+import Posts from "./components/Posts/Posts.jsx";
+import PostDetails from "./components/PostDetails/PostDetails.jsx";
 
 const user2Data = fetch("https://jsonplaceholder.typicode.com/users").then(
   (res) => res.json(),
@@ -25,17 +28,34 @@ const router = createBrowserRouter([
       { path: "app", Component: App },
       { path: "mobile", Component: Mobile },
       {
-        path: "user",
+        path: "users",
         loader: () => fetch("https://jsonplaceholder.typicode.com/users"),
-        Component: User,
+        Component: Users,
       },
       {
-        path: "/user2",
+        path: "/users2",
         element: (
           <Suspense fallback={<span>Loading.....</span>}>
-            <User2 user2Data={user2Data}></User2>
+            <Users2 user2Data={user2Data}></Users2>
           </Suspense>
         ),
+      },
+
+      {
+        path: "users/:userId",
+        loader: () => fetch(""),
+        Component: UserDetails,
+      },
+      {
+        path: "/posts",
+        loader: () => fetch("https://jsonplaceholder.typicode.com/posts"),
+        Component: Posts,
+      },
+      {
+        path: "/posts/:postId",
+        loader: ({ params }) =>
+          fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`),
+        Component: PostDetails,
       },
     ],
   },

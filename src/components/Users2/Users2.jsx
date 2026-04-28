@@ -1,6 +1,6 @@
 import { use } from "react";
 
-const User2 = ({ user2Data }) => {
+const Users2 = ({ user2Data }) => {
   const user = use(user2Data);
   console.log("user2 Data", user);
   return (
@@ -10,4 +10,4 @@ const User2 = ({ user2Data }) => {
   );
 };
 
-export default User2;
+export default Users2;
